@@ -128,6 +128,22 @@ body {
     color: #666;
 }
 
+.todo-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.todo-text {
+    font-size: 1rem;
+}
+
+.todo-timestamp {
+    font-size: 0.75rem;
+    color: #999;
+}
+
 .check-box {
     width: 20px;
     height: 20px;
