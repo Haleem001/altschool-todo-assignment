@@ -1,0 +1,40 @@
+<%- include('partials/header') %>
+<%- include('partials/navbar') %>
+
+<div class="todo-wrapper">
+    <div class="welcome-header">
+        <h1>Hello, <%= user.username %>!</h1>
+        <p class="subtitle">What needs to be done today?</p>
+    </div>
+
+    <div class="add-todo-section">
+        <form action="/add" method="POST" class="add-todo-form">
+            <input type="text" name="title" placeholder="Add a new task..." required autocomplete="off">
+            <button type="submit" class="btn btn-add">+</button>
+        </form>
+    </div>
+
+    <div class="todo-list">
+        <% if (todos.length > 0) { %>
+            <% todos.forEach(todo => { %>
+                <div class="todo-item <%= todo.completed ? 'completed' : '' %>">
+                    <a href="/complete/<%= todo._id %>" class="check-box">
+                        <% if (todo.completed) { %>
+                            <svg viewBox="0 0 24 24" fill="none" class="check-icon"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <% } %>
+                    </a>
+                    <span class="todo-text"><%= todo.title %></span>
+                    <a href="/trash/<%= todo._id %>" class="btn-icon delete-btn" title="Move to Trash">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                    </a>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <div class="empty-state">
+                <p>No tasks yet. Add one above!</p>
+            </div>
+        <% } %>
+    </div>
+</div>
+
+<%- include('partials/footer') %>
