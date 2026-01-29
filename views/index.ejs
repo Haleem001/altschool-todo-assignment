@@ -14,12 +14,21 @@
         </form>
     </div>
 
+    <div class="sort-section">
+        <label>Sort by:</label>
+        <select id="sortFilter">
+            <option value="all">All Tasks</option>
+            <option value="pending">Pending</option>
+            <option value="completed">Completed</option>
+        </select>
+    </div>
+
     <div class="todo-list">
         <% if (todos.length > 0) { %>
             <% todos.forEach(todo => { %>
-                <div class="todo-item <%= todo.completed ? 'completed' : '' %>">
+                <div class="todo-item <%= todo.status === 'completed' ? 'completed' : '' %>">
                     <a href="/complete/<%= todo._id %>" class="check-box">
-                        <% if (todo.completed) { %>
+                        <% if (todo.status === 'completed') { %>
                             <svg viewBox="0 0 24 24" fill="none" class="check-icon"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         <% } %>
                     </a>

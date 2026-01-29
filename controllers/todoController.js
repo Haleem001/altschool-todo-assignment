@@ -103,3 +103,26 @@ exports.restoreTodo = async (req, res) => {
         res.status(500).send('Server Error');
     }
 };
+
+// Permanent deletion from trash
+exports.permanentDelete = async (req, res) => {
+    try {
+        const todo = await Todo.findOneAndDelete(
+            { _id: req.params.id, user: req.user._id }
+        );
+
+        if (!todo) {
+            return res.status(404).json({ message: 'Todo not found' });
+        }
+
+        // Remove from user's todos array
+        await User.findByIdAndUpdate(req.user._id, {
+            $pull: { todos: req.params.id }
+        });
+
+        res.redirect('/trash');
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Server Error');
+    }
+};

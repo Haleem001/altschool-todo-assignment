@@ -1,0 +1,287 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background: #f5f5f5;
+}
+
+.navbar {
+    background: white;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.nav-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+}
+
+.btn-logout {
+    background: #6366f1;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    cursor: pointer;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.todo-wrapper {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.welcome-header h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.add-todo-form {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.add-todo-form input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+}
+
+.btn {
+    padding: 0.75rem 1rem;
+    background: #6366f1;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.sort-section {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    align-items: center;
+}
+
+.sort-section label {
+    font-weight: 500;
+}
+
+.sort-section select {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    background: white;
+    cursor: pointer;
+}
+
+.todo-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: white;
+    border: 1px solid #ddd;
+}
+
+.todo-item.completed {
+    background: #e8f5e9;
+    border-color: #4caf50;
+}
+
+.todo-item.completed .todo-text {
+    text-decoration: line-through;
+    color: #666;
+}
+
+.check-box {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.todo-item.completed .check-box {
+    background: #4caf50;
+    border-color: #4caf50;
+}
+
+.check-icon {
+    width: 14px;
+    height: 14px;
+}
+
+.todo-text {
+    flex: 1;
+}
+
+.btn-icon {
+    width: 24px;
+    height: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.btn-icon svg {
+    width: 16px;
+    height: 16px;
+}
+
+.actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.empty-state {
+    padding: 2rem;
+    text-align: center;
+    background: white;
+    border: 1px dashed #ddd;
+}
+
+.back-link {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.back-link a {
+    color: #6366f1;
+    text-decoration: none;
+}
+
+.auth-container {
+    max-width: 350px;
+    margin: 2rem auto;
+    background: white;
+    padding: 2rem;
+    border: 1px solid #ddd;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+}
+
+.auth-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background: #6366f1;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: #999;
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .nav-links {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+
+    .todo-wrapper {
+        max-width: 100%;
+    }
+
+    .welcome-header h1 {
+        font-size: 1.25rem;
+    }
+
+    .add-todo-form {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .add-todo-form input,
+    .btn {
+        width: 100%;
+    }
+
+    .sort-section {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .sort-section select {
+        width: 100%;
+    }
+
+    .todo-item {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+
+    .actions {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .auth-container {
+        max-width: 100%;
+        margin: 1rem;
+    }
+}

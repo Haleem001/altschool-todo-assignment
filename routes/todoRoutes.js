@@ -15,8 +15,8 @@ router.get('/trash', todoController.getTrashed);
 // Actions
 router.post('/add', todoController.createTodo); // Changed to POST for creation
 router.get('/complete/:id', todoController.toggleComplete);
-router.get('/trash/:id', todoController.trashTodo);
+router.get('/trash/:id', todoController.deleteTodo);
 router.get('/restore/:id', todoController.restoreTodo);
-router.get('/delete/:id', todoController.deleteTodo); // Permanent delete
+router.get('/delete/:id', todoController.permanentDelete); // Permanent delete
 
 module.exports = router;

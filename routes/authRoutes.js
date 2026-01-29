@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const User = require('../models/User');
-const bcrypt = require('bcryptjs'); // Assuming bcryptjs is installed as per package.json, though controller used bcrypt. Checking package.json... package.json has bcryptjs. Controller had bcrypt. I should stick to one. Controller 'require' was bcrypt. I will use bcryptjs to match package.json.
+const bcrypt = require('bcryptjs'); 
 
 // Signup Page
 router.get('/signup', (req, res) => res.render('signup', { title: 'Signup', user: req.user }));
@@ -29,7 +29,15 @@ router.post('/signup', async (req, res) => {
         });
 
         await user.save();
-        res.redirect('/auth/login');
+        req.logIn(user, (err) => {
+            if (err) {
+                console.error(err);
+                req.flash('error_msg', 'Signup successful, but auto-login failed. Please login manually.');
+                return res.redirect('/auth/login');
+    }
+            req.flash('success_msg', 'Account created successfully! Welcome to your todos.');
+            res.redirect('/'); // Redirect to todo list page
+        });
     } catch (err) {
         console.error(err);
         res.render('signup', { error: 'Server Error', title: 'Signup', user: null });
