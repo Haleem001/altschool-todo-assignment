@@ -2,6 +2,11 @@
 
 A full-stack Todo application built with Node.js, Express, MongoDB, and EJS. This application follows the MVC (Model-View-Controller) architecture and includes user authentication.
 
+## Live Demo
+
+**Deployed App:** [https://my-todo-app-94kf.onrender.com/](https://my-todo-app-94kf.onrender.com/)
+**ER Diagram:** [https://drawsql.app/teams/haleem-2/diagrams/todo-app](https://drawsql.app/teams/haleem-2/diagrams/todo-app)
+
 ## Features
 
 - **User Authentication:** Secure Signup and Login functionality.
@@ -17,20 +22,6 @@ A full-stack Todo application built with Node.js, Express, MongoDB, and EJS. Thi
 - **Frontend:** EJS (Embedded JavaScript templates), CSS
 - **Authentication:** Passport.js
 
-## Project Structure
-
-```bash
-todo-app/
-├── config/              # Database connection & configuration
-├── controllers/         # Request handling logic
-├── middleware/          # Authentication & error handling middleware
-├── models/              # Mongoose data schemas
-├── public/              # Static files (CSS, JS, Images)
-├── routes/              # Application routing
-├── views/               # EJS templates for UI
-├── app.js               # Application entry point
-└── package.json         # Project dependencies
-```
 
 ## Getting Started
 
