@@ -30,9 +30,11 @@ exports.createTodo = async (req, res) => {
             $push: { todos: savedTodo._id }
         });
 
+        req.flash('success_msg', 'Task added successfully!');
         res.redirect('/');
     } catch (err) {
         console.error(err);
+        req.flash('error_msg', 'Failed to add task. Please try again.');
         res.redirect('/');
     }
 };

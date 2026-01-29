@@ -19,5 +19,13 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // Auto-hide toast after 3 seconds
+    const toast = document.getElementById('toast');
+    if (toast) {
+        setTimeout(() => {
+            toast.style.display = 'none';
+        }, 3000);
+    }
 });
 

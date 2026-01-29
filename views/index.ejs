@@ -1,6 +1,24 @@
 <%- include('partials/header') %>
 <%- include('partials/navbar') %>
 
+<% if (success_msg && success_msg.length > 0) { %>
+    <div class="toast toast-success" id="toast">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="toast-icon">
+            <path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span><%= success_msg %></span>
+    </div>
+<% } %>
+
+<% if (error_msg && error_msg.length > 0) { %>
+    <div class="toast toast-error" id="toast">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="toast-icon">
+            <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+        <span><%= error_msg %></span>
+    </div>
+<% } %>
+
 <div class="todo-wrapper">
     <div class="welcome-header">
         <h1>Hello, <%= user.username %>!</h1>
