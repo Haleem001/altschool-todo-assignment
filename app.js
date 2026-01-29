@@ -5,6 +5,7 @@ const passport = require('passport');
 const connectDB = require('./config/db');
 const path = require('path');
 const errorHandler = require('./middleware/errorMiddleware');
+const logger = require('./utils/logger');
 require('dotenv').config();
 
 // Passport Config
@@ -61,5 +62,5 @@ app.use(errorHandler);
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Server is running on port ${PORT}`);
+  logger.info(`Server is running on port ${PORT}`);
 });
